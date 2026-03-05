@@ -57,6 +57,7 @@ public class SuperHeroeDAO implements ISuperHeroeDAO {
             SuperHeroe heroe = em.find(SuperHeroe.class, id);
             if(heroe !=null){
                 em.remove(heroe);
+                em.getTransaction().commit();
             }
         }catch(Exception ex){
             if(em.getTransaction().isActive()){
